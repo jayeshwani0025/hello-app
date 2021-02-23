@@ -11,4 +11,10 @@ public class HomeController {
 	public String getString() {
 		return "Hello everyone";
 	}
+	
+	
+	@RequestMapping("/home")
+	public String getHomeScreen() {
+		return "Welcome to Home";
+	}
 }
