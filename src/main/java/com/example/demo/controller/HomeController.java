@@ -17,4 +17,9 @@ public class HomeController {
 	public String getHomeScreen() {
 		return "Welcome to Home";
 	}
+	
+	@RequestMapping("/app")
+	public String getApplication() {
+		return "Welcome to Yash family";
+	}
 }
