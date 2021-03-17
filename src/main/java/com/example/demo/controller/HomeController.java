@@ -22,4 +22,10 @@ public class HomeController {
 	public String getApplication() {
 		return "Welcome to Yash family";
 	}
+	
+	
+	@RequestMapping("/sabirul")
+	public String getStringSabirul() {
+		return "Sabirul Test App";
+	}
 }
