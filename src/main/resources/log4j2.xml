@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- %-30c{1} - %5L : %m%n
+        </Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+	    <!-- Rolling File Appender -->
+	   <!--  LOCAL Drive -->
+			<!-- <RollingFile name="FileAppender" fileName="D:/RIL/service.log/QuickBuyApp.log" 
+					 filePattern="D:/RIL/service.log/QUICKBUY/QUICKBUY-%d{yyyy-MM-dd}-%i.log"> -->
+			 <RollingFile name="FileAppender" fileName="D:\RIL\service.log\QuickBuyApp.log" 
+			 filePattern="D:\RIL\service.log\QUICKBUY-%d{yyyy-MM-dd}-%i.log">
+		    <PatternLayout>
+		        <Pattern>${LOG_PATTERN}</Pattern>
+		    </PatternLayout>
+		    <Policies>
+		        <SizeBasedTriggeringPolicy size="20MB" />
+		    </Policies>
+		    <DefaultRolloverStrategy max="1000"/>
+		</RollingFile>
+		<!-- Policies>
+		    <TimeBasedTriggeringPolicy interval="1" />
+		</Policies-->
+    </Appenders>
+    <Loggers>
+        <Logger name="com.seller.quickbuy.QuickBuyApp" level="debug" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ConsoleAppender" />
+        </Logger>
+
+        <Root level="debug">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ConsoleAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
